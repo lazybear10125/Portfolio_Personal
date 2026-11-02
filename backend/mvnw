@@ -1,0 +1,10 @@
+#!/bin/sh
+DIRNAME="$(cd "$(dirname "$0")" && pwd)"
+if command -v mvn >/dev/null 2>&1; then
+  exec mvn "$@"
+elif [ -x "$DIRNAME/.tools/apache-maven-3.9.6/bin/mvn" ]; then
+  exec "$DIRNAME/.tools/apache-maven-3.9.6/bin/mvn" "$@"
+else
+  echo "Maven not found." >&2
+  exit 1
+fi
