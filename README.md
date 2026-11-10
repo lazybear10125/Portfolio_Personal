@@ -120,10 +120,18 @@ docker compose up --build -d
 cd backend
 
 # Option A: Run with in-memory H2 (Zero MySQL setup needed)
-.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=dev
+# On PowerShell: Wrap the -D argument in quotes
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=dev"
+
+# On Command Prompt (cmd):
+mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=dev
 
 # Option B: Run with local MySQL (Ensure MySQL is listening on 3306)
-.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=mysql
+# On PowerShell: Wrap the -D argument in quotes
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=mysql"
+
+# On Command Prompt (cmd):
+mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=mysql
 ```
 The backend starts at `http://localhost:8080`.
 
